@@ -343,7 +343,7 @@
     {
       "name": "Image descriptions",
       "status": "pass",
-      "detail": "0 of 0 images have no non-empty alt text. Decorative images may intentionally have empty alt text."
+      "detail": "0/0 images lack non-empty alt text. Decorative images may intentionally have empty alt text."
     },
     {
       "name": "Canonical URL",

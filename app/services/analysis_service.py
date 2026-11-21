@@ -56,7 +56,7 @@ class AnalysisService:
                 generated, usage = await self.llm.generate(pages)
                 result = AnalysisResponse(
                     **generated.model_dump(exclude={"limitations"}),
-                    limitations=list(dict.fromkeys(generated.limitations + warnings)),
+                    limitations=list(dict.fromkeys(warnings + generated.limitations))[:10],
                     website=pages[0].url,
                     sources=pages,
                     seo_checks=seo_checks(pages[0]),

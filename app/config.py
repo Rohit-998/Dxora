@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     gemini_api_key: SecretStr = SecretStr("")
-    gemini_model: str = Field(default="gemini-2.5-flash", pattern=r"^[a-zA-Z0-9.\-]+$")
+    gemini_model: str = Field(default="gemini-3.5-flash-lite", pattern=r"^[a-zA-Z0-9.\-]+$")
     analysis_api_key: SecretStr = SecretStr("")
     allowed_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     cache_ttl_seconds: int = Field(default=900, ge=1, le=86400)

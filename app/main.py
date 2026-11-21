@@ -88,6 +88,7 @@ def create_app(settings: Settings | None = None, service=None) -> FastAPI:
                 )
             buckets[peer] = count + 1
             size = 0
+            body = bytearray()
             async for chunk in request.stream():
                 size += len(chunk)
                 if size > 4096:
@@ -95,8 +96,6 @@ def create_app(settings: Settings | None = None, service=None) -> FastAPI:
                         request, "request_too_large", "Request body exceeds 4 KB.", 413
                     )
                 # Starlette caches body only through .body(); replay a bounded body below.
-                if size == len(chunk):
-                    body = bytearray()
                 body.extend(chunk)
             request._body = bytes(body) if size else b""
         try:

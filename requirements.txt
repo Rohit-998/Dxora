@@ -1,7 +1,7 @@
-fastapi>=0.115,<1
-uvicorn[standard]>=0.34,<1
-pydantic>=2.10,<3
-pydantic-settings>=2.7,<3
-httpx>=0.28,<0.29
-beautifulsoup4>=4.13,<5
-cachetools>=5.5,<8
+fastapi==0.165.0
+uvicorn==0.54.0
+pydantic==2.14.4
+pydantic-settings==2.16.3
+httpx==0.28.1
+beautifulsoup4==4.15.0
+cachetools==7.3.3

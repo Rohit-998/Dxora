@@ -57,7 +57,6 @@ class GeminiService:
                 }
             ],
             "generationConfig": {
-                "temperature": 0.2,
                 "maxOutputTokens": 8192,
                 "responseMimeType": "application/json",
                 "responseJsonSchema": GeneratedReport.model_json_schema(),
@@ -66,6 +65,10 @@ class GeminiService:
         # A non-thinking budget reduces cost on the selected Flash generation.
         if self.settings.gemini_model.startswith("gemini-2.5-flash"):
             payload["generationConfig"]["thinkingConfig"] = {"thinkingBudget": 0}
+        elif self.settings.gemini_model == "gemini-3.5-flash-lite":
+            payload["generationConfig"]["thinkingConfig"] = {"thinkingLevel": "MINIMAL"}
+        elif self.settings.gemini_model == "gemini-3.8-flash":
+            payload["generationConfig"]["thinkingConfig"] = {"thinkingLevel": "LOW"}
         endpoint = (
             "https://generativelanguage.googleapis.com/v1beta/models/"
             f"{self.settings.gemini_model}:generateContent"
@@ -122,7 +125,14 @@ class GeminiService:
             raise AnalysisError(
                 "provider_unavailable", "Gemini could not be reached. Please try again.", 502
             ) from exc
-        except (ValidationError, ValueError, KeyError, TypeError) as exc:
+        except (
+            ValidationError,
+            ValueError,
+            KeyError,
+            TypeError,
+            AttributeError,
+            IndexError,
+        ) as exc:
             raise AnalysisError(
                 "invalid_analysis",
                 "Gemini returned a report that failed validation. Please try again.",
@@ -144,9 +154,7 @@ def verify_evidence(report: GeneratedReport, pages: list[PageSource]) -> None:
         service.evidence = verified
         if service.evidence_status == "observed" and not verified:
             service.evidence_status = "inferred"
-            note = (
-                "Some service evidence could not be matched to the text and was labeled inferred."
-            )
+            note = "Unmatched service evidence was removed and the service labeled inferred."
             if note not in report.limitations:
                 report.limitations.append(note)
     note = "Competitor comparisons are unverified AI suggestions, not independent market research."

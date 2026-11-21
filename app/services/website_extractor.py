@@ -33,7 +33,8 @@ class WebsiteExtractor:
         current = normalize_url(url)
         for _ in range(5):
             original = httpx.URL(current)
-            address = await resolve_public_ip(original.host, original.port or 443)
+            port = original.port or (443 if original.scheme == "https" else 80)
+            address = await resolve_public_ip(original.host, port)
             pinned = original.copy_with(host=address)
             # HTTPX/httpcore preserve hostname verification with the SNI extension.
             # The socket connects to the IP, never to a second DNS lookup.
@@ -41,9 +42,10 @@ class WebsiteExtractor:
                 "GET",
                 pinned,
                 headers={
-                    "Host": original.host,
+                    "Host": original.netloc.decode("ascii"),
                     "Accept": "text/html,application/xhtml+xml",
                     "Accept-Encoding": "identity",
+                    "Cookie": "",
                     "User-Agent": "ApertureBot/1.0",
                 },
                 extensions={"sni_hostname": original.host},
@@ -185,7 +187,7 @@ def seo_checks(page: PageSource) -> list[SEOCheck]:
         SEOCheck(
             name="Image descriptions",
             status="pass" if not page.images_without_alt else "review",
-            detail=f"{page.images_without_alt} of {page.image_count} images lack non-empty alt text. "
+            detail=f"{page.images_without_alt}/{page.image_count} images lack non-empty alt text. "
             "Decorative images may intentionally have empty alt text.",
         ),
         SEOCheck(
