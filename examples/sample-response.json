@@ -306,7 +306,7 @@
     {
       "id": "page-1",
       "url": "https://forma.example/",
-      "title": "Forma â€” Digital experiences for ambitious brands",
+      "title": "Forma — Digital experiences for ambitious brands",
       "meta_description": "Forma is an independent digital studio building distinctive brands, thoughtful websites, and digital products for ambitious businesses around the world.",
       "headings": [
         "Good design moves business forward.",
@@ -317,7 +317,7 @@
         "Creative direction",
         "Built together"
       ],
-      "text": "Forma â€” Digital experiences for ambitious brands\nGood design moves business forward.\nForma is a fictional independent digital studio used to demonstrate Aperture. We partner with ambitious startups and growing businesses to turn complex ideas into clear, memorable digital experiences.\nBrand strategy & identity\nBrand strategy and visual identity systems help businesses find their voice and stand out.\nWebsite design & development\nCustom websites combine thoughtful design, accessible interfaces, and reliable development.\nDigital product design\nWe design intuitive digital products, from early research to interactive prototypes and design systems.\nE-commerce experiences\nWe create online shopping experiences that make discovering products and checking out feel effortless.\nCreative direction\nCreative direction connects brand storytelling, campaigns, and digital experiences into a consistent whole.\nBuilt together\nWe work closely with founders, marketing teams, and product leaders across technology, retail, and professional services. Our process brings strategy, design, and development into one collaborative partnership.",
+      "text": "Forma — Digital experiences for ambitious brands\nGood design moves business forward.\nForma is a fictional independent digital studio used to demonstrate Aperture. We partner with ambitious startups and growing businesses to turn complex ideas into clear, memorable digital experiences.\nBrand strategy & identity\nBrand strategy and visual identity systems help businesses find their voice and stand out.\nWebsite design & development\nCustom websites combine thoughtful design, accessible interfaces, and reliable development.\nDigital product design\nWe design intuitive digital products, from early research to interactive prototypes and design systems.\nE-commerce experiences\nWe create online shopping experiences that make discovering products and checking out feel effortless.\nCreative direction\nCreative direction connects brand storytelling, campaigns, and digital experiences into a consistent whole.\nBuilt together\nWe work closely with founders, marketing teams, and product leaders across technology, retail, and professional services. Our process brings strategy, design, and development into one collaborative partnership.",
       "word_count": 149,
       "canonical": "https://forma.example/",
       "image_count": 0,
@@ -328,7 +328,7 @@
     {
       "name": "Page title",
       "status": "pass",
-      "detail": "50 characters. Review for a descriptive, concise title."
+      "detail": "48 characters. Review for a descriptive, concise title."
     },
     {
       "name": "Meta description",

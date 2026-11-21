@@ -8,7 +8,10 @@ from app.services.website_extractor import parse_page, seo_checks
 
 ROOT = Path(__file__).resolve().parents[1]
 page, _ = parse_page(
-    "https://forma.example/", (ROOT / "examples/forma.html").read_text(), "page-1", 24000
+    "https://forma.example/",
+    (ROOT / "examples/forma.html").read_text(encoding="utf-8"),
+    "page-1",
+    24000,
 )
 service_data = [
     (
