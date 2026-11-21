@@ -1,0 +1,371 @@
+{
+  "brand": {
+    "name": "Forma",
+    "category": "Independent digital studio",
+    "summary": "An independent studio bringing brand strategy, design, and development together for ambitious startups and growing businesses.",
+    "products_and_services": [
+      "Brand strategy & identity",
+      "Website design & development",
+      "Digital product design",
+      "E-commerce experiences",
+      "Creative direction"
+    ]
+  },
+  "analysis": {
+    "competitor_analysis": {
+      "brand_overview": "Forma brings strategy and execution into one collaborative partnership. Its clearest positioning opportunity is to make that integrated approach tangible through focused case studies.",
+      "competitors": [
+        {
+          "name": "Clay",
+          "comparison": "Potential overlap in brand and digital product design.",
+          "strengths": [
+            "Recognizable digital design positioning",
+            "Product and brand disciplines"
+          ],
+          "gaps": [
+            "Verify fit for smaller, early-stage budgets"
+          ],
+          "evidence_status": "ai_suggestion"
+        },
+        {
+          "name": "Ramotion",
+          "comparison": "Potential overlap in identity, websites, and product design.",
+          "strengths": [
+            "Multi-disciplinary design offering",
+            "Technology-oriented positioning"
+          ],
+          "gaps": [
+            "Verify the depth of ongoing creative partnership"
+          ],
+          "evidence_status": "ai_suggestion"
+        },
+        {
+          "name": "Focus Lab",
+          "comparison": "Potential overlap in strategic brand identity work.",
+          "strengths": [
+            "Focused brand strategy positioning",
+            "Business-oriented brand storytelling"
+          ],
+          "gaps": [
+            "Verify coverage of product and commerce development"
+          ],
+          "evidence_status": "ai_suggestion"
+        }
+      ],
+      "strengths": [
+        "Strategy, design, and development in one studio",
+        "A collaborative approach for founders and teams",
+        "Coverage across brand, product, and commerce"
+      ],
+      "opportunities": [
+        "Build dedicated landing pages for each core service",
+        "Publish case studies with verifiable business outcomes",
+        "Clarify project fit, process, and engagement options"
+      ]
+    },
+    "target_search_queries": [
+      {
+        "query": "brand and website design studio",
+        "platforms": [
+          "Google"
+        ],
+        "intent": "Commercial investigation",
+        "business_relevance": "Connects the studio's two core disciplines.",
+        "target_audience": "Founders planning a brand launch"
+      },
+      {
+        "query": "creative studio for small business",
+        "platforms": [
+          "Facebook"
+        ],
+        "intent": "Business discovery",
+        "business_relevance": "Matches growing businesses seeking a creative partner.",
+        "target_audience": "Small business owners"
+      },
+      {
+        "query": "minimal brand identity inspiration",
+        "platforms": [
+          "Instagram"
+        ],
+        "intent": "Inspiration",
+        "business_relevance": "Reaches people exploring a new visual identity.",
+        "target_audience": "Brand and marketing teams"
+      },
+      {
+        "query": "digital product design partner for startups",
+        "platforms": [
+          "LinkedIn"
+        ],
+        "intent": "B2B service discovery",
+        "business_relevance": "Pairs product design with the stated startup audience.",
+        "target_audience": "Startup product leaders"
+      },
+      {
+        "query": "ecommerce website design recommendations",
+        "platforms": [
+          "X"
+        ],
+        "intent": "Peer recommendations",
+        "business_relevance": "Captures conversations about the studio's commerce offering.",
+        "target_audience": "Retail and direct-to-consumer founders"
+      }
+    ],
+    "seo_improvements": {
+      "primary_keyword": "digital design studio",
+      "secondary_keywords": [
+        "brand identity design",
+        "website design and development",
+        "digital product design"
+      ],
+      "long_tail_keywords": [
+        "brand and website design for startups",
+        "independent digital studio for growing businesses",
+        "ecommerce experience design studio"
+      ],
+      "business_keywords": [
+        "creative direction",
+        "design systems",
+        "brand strategy"
+      ],
+      "recommended_title": "Digital Design Studio for Ambitious Brands | Forma",
+      "title_rationale": "Lead with the service category, add the audience, and close with the brand.",
+      "meta_description": "Build a brand that moves your business forward. Forma brings brand strategy, web development, and digital product design together. Meet your creative partner.",
+      "supporting_content": [
+        {
+          "title": "Brand strategy for early-stage startups",
+          "content_type": "Service landing page",
+          "rationale": "Explain deliverables and process for a clearly named customer group.",
+          "priority": "high"
+        },
+        {
+          "title": "From first idea to product launch",
+          "content_type": "Case study",
+          "rationale": "Show the actual research, design decisions, and measured outcomes of a project.",
+          "priority": "high"
+        },
+        {
+          "title": "What to expect when working with a design studio",
+          "content_type": "FAQ / guide",
+          "rationale": "Answer practical questions about collaboration, scope, and timelines.",
+          "priority": "medium"
+        }
+      ]
+    },
+    "top_services": [
+      {
+        "name": "Brand strategy & identity",
+        "description": "A distinct voice, built to last.",
+        "target_industry": "Startups & professional services",
+        "target_customer": "Founders and marketing leaders",
+        "main_benefit": "Turn a business vision into a recognizable brand.",
+        "evidence_status": "observed",
+        "evidence": [
+          {
+            "source_id": "page-1",
+            "quote": "Brand strategy and visual identity systems help businesses find their voice and stand out."
+          }
+        ]
+      },
+      {
+        "name": "Website design & development",
+        "description": "Thoughtful websites that work as well as they look.",
+        "target_industry": "Technology & services",
+        "target_customer": "Growing businesses",
+        "main_benefit": "Create an accessible, credible digital home.",
+        "evidence_status": "observed",
+        "evidence": [
+          {
+            "source_id": "page-1",
+            "quote": "Custom websites combine thoughtful design, accessible interfaces, and reliable development."
+          }
+        ]
+      },
+      {
+        "name": "Digital product design",
+        "description": "From a complex idea to an intuitive product.",
+        "target_industry": "SaaS & technology",
+        "target_customer": "Product teams",
+        "main_benefit": "Validate ideas and simplify the customer experience.",
+        "evidence_status": "observed",
+        "evidence": [
+          {
+            "source_id": "page-1",
+            "quote": "We design intuitive digital products, from early research to interactive prototypes and design systems."
+          }
+        ]
+      },
+      {
+        "name": "E-commerce experiences",
+        "description": "Make discovery feel effortless.",
+        "target_industry": "Retail & direct-to-consumer",
+        "target_customer": "Retail founders",
+        "main_benefit": "Remove friction from online shopping.",
+        "evidence_status": "observed",
+        "evidence": [
+          {
+            "source_id": "page-1",
+            "quote": "We create online shopping experiences that make discovering products and checking out feel effortless."
+          }
+        ]
+      },
+      {
+        "name": "Creative direction",
+        "description": "One story, across every touchpoint.",
+        "target_industry": "Consumer & professional brands",
+        "target_customer": "Marketing teams",
+        "main_benefit": "Build consistency across campaigns and channels.",
+        "evidence_status": "observed",
+        "evidence": [
+          {
+            "source_id": "page-1",
+            "quote": "Creative direction connects brand storytelling, campaigns, and digital experiences into a consistent whole."
+          }
+        ]
+      }
+    ],
+    "target_audience": {
+      "primary_audience": [
+        "Startup founders",
+        "Growing businesses"
+      ],
+      "secondary_audience": [
+        "Marketing leaders",
+        "Product teams"
+      ],
+      "industries": [
+        "Technology",
+        "Retail",
+        "Professional services"
+      ],
+      "business_types": [
+        "Startups",
+        "Small and medium businesses",
+        "Direct-to-consumer brands"
+      ],
+      "geographic_focus": "Not specified on the analyzed pages",
+      "customer_needs": [
+        "A credible and distinctive brand",
+        "A better digital customer experience",
+        "One partner across strategy and execution"
+      ],
+      "segments": [
+        {
+          "name": "The ambitious founder",
+          "business_type": "Early-stage startup",
+          "profile": "A founder preparing to launch or reposition a business.",
+          "needs": [
+            "Brand clarity",
+            "A launch-ready website"
+          ],
+          "interests": [
+            "Entrepreneurship",
+            "Brand building"
+          ],
+          "marketing_approach": "Share launch stories and practical brand-building advice on LinkedIn."
+        },
+        {
+          "name": "The growth-minded team",
+          "business_type": "Growing business",
+          "profile": "A marketing team whose digital presence no longer reflects its business.",
+          "needs": [
+            "A cohesive identity",
+            "A clearer website journey"
+          ],
+          "interests": [
+            "Customer experience",
+            "Digital marketing"
+          ],
+          "marketing_approach": "Publish detailed redesign case studies and service-specific search content."
+        },
+        {
+          "name": "The product builder",
+          "business_type": "Technology company",
+          "profile": "A product leader bringing a new digital experience to market.",
+          "needs": [
+            "Usability research",
+            "An adaptable design system"
+          ],
+          "interests": [
+            "Product strategy",
+            "User experience"
+          ],
+          "marketing_approach": "Demonstrate product thinking through prototypes and design process breakdowns."
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "This is a hand-authored demonstration using a fictional studio and a local HTML fixture, not a live Gemini analysis.",
+    "Competitor comparisons are illustrative, unverified AI-style suggestions; no independent research was performed.",
+    "Audience profiles and recommendations are interpretations, not measured customer data.",
+    "No search volumes, rankings, or performance scores are claimed."
+  ],
+  "success": true,
+  "website": "https://forma.example/",
+  "sources": [
+    {
+      "id": "page-1",
+      "url": "https://forma.example/",
+      "title": "Forma â€” Digital experiences for ambitious brands",
+      "meta_description": "Forma is an independent digital studio building distinctive brands, thoughtful websites, and digital products for ambitious businesses around the world.",
+      "headings": [
+        "Good design moves business forward.",
+        "Brand strategy & identity",
+        "Website design & development",
+        "Digital product design",
+        "E-commerce experiences",
+        "Creative direction",
+        "Built together"
+      ],
+      "text": "Forma â€” Digital experiences for ambitious brands\nGood design moves business forward.\nForma is a fictional independent digital studio used to demonstrate Aperture. We partner with ambitious startups and growing businesses to turn complex ideas into clear, memorable digital experiences.\nBrand strategy & identity\nBrand strategy and visual identity systems help businesses find their voice and stand out.\nWebsite design & development\nCustom websites combine thoughtful design, accessible interfaces, and reliable development.\nDigital product design\nWe design intuitive digital products, from early research to interactive prototypes and design systems.\nE-commerce experiences\nWe create online shopping experiences that make discovering products and checking out feel effortless.\nCreative direction\nCreative direction connects brand storytelling, campaigns, and digital experiences into a consistent whole.\nBuilt together\nWe work closely with founders, marketing teams, and product leaders across technology, retail, and professional services. Our process brings strategy, design, and development into one collaborative partnership.",
+      "word_count": 149,
+      "canonical": "https://forma.example/",
+      "image_count": 0,
+      "images_without_alt": 0
+    }
+  ],
+  "seo_checks": [
+    {
+      "name": "Page title",
+      "status": "pass",
+      "detail": "50 characters. Review for a descriptive, concise title."
+    },
+    {
+      "name": "Meta description",
+      "status": "pass",
+      "detail": "152 characters. Write a useful search snippet."
+    },
+    {
+      "name": "Heading structure",
+      "status": "pass",
+      "detail": "7 H1–H3 headings found in the page HTML."
+    },
+    {
+      "name": "Image descriptions",
+      "status": "pass",
+      "detail": "0 of 0 images have no non-empty alt text. Decorative images may intentionally have empty alt text."
+    },
+    {
+      "name": "Canonical URL",
+      "status": "pass",
+      "detail": "A canonical link is present."
+    },
+    {
+      "name": "HTTPS",
+      "status": "pass",
+      "detail": "HTTPS is enabled."
+    }
+  ],
+  "metadata": {
+    "request_id": "sample-report",
+    "generated_at": "2026-11-21T00:00:00Z",
+    "duration_ms": 0,
+    "model": "illustrative fixture",
+    "cached": false,
+    "input_tokens": null,
+    "output_tokens": null,
+    "thinking_tokens": null,
+    "source_count": 1,
+    "is_demo": true
+  }
+}
