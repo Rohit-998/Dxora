@@ -7,10 +7,11 @@ from pathlib import Path
 
 import httpx
 from cachetools import TTLCache
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Security
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.security import APIKeyHeader
 from fastapi.staticfiles import StaticFiles
 
 from app.config import Settings
@@ -20,7 +21,7 @@ from app.services.analysis_service import AnalysisService
 from app.services.llm_service import GeminiService
 from app.services.website_extractor import WebsiteExtractor
 
-logger = logging.getLogger("aperture")
+logger = logging.getLogger("uvicorn.error")
 
 
 def create_app(settings: Settings | None = None, service=None) -> FastAPI:
@@ -147,6 +148,16 @@ def create_app(settings: Settings | None = None, service=None) -> FastAPI:
         "/link-analysis",
         response_model=AnalysisResponse,
         tags=["Analysis"],
+        dependencies=[
+            Security(
+                APIKeyHeader(
+                    name="X-API-Key",
+                    auto_error=False,
+                    description="App access key; needed when ANALYSIS_API_KEY is configured. "
+                    "Never enter your Gemini provider key here.",
+                )
+            )
+        ],
         responses={code: {"model": ErrorResponse} for code in (401, 413, 422, 429, 502, 503, 504)},
     )
     async def link_analysis(payload: AnalysisRequest, request: Request):

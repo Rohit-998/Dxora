@@ -157,3 +157,39 @@ async def test_empty_content_has_actionable_error(settings):
     extractor.fetch = AsyncMock(return_value=("https://example.com/", "<div id='app'></div>"))
     with pytest.raises(AnalysisError, match="JavaScript"):
         await extractor.extract("https://example.com/")
+
+
+async def test_multi_page_extraction_and_partial_failure(settings):
+    settings.max_pages = 3
+    content = "A useful public website describing software development and design services. " * 5
+    extractor = WebsiteExtractor(settings, None)
+    extractor.fetch = AsyncMock(
+        side_effect=[
+            (
+                "https://example.com/",
+                f"<main>{content}<a href='/about'>About</a><a href='/services'>Services</a></main>",
+            ),
+            ("https://example.com/about", f"<main>About the company: {content}</main>"),
+            AnalysisError("website_restricted", "Forbidden"),
+        ]
+    )
+    pages, warnings = await extractor.extract("https://example.com/")
+    assert len(pages) == 2
+    assert [p.id for p in pages] == ["page-1", "page-2"]
+    assert warnings and "could not be read" in warnings[0]
+    assert sum(len(page.text) for page in pages) <= settings.max_content_chars
+
+
+async def test_offsite_internal_redirect_is_excluded(settings):
+    settings.max_pages = 2
+    content = "A useful public website describing software development and design services. " * 5
+    extractor = WebsiteExtractor(settings, None)
+    extractor.fetch = AsyncMock(
+        side_effect=[
+            ("https://example.com/", f"<main>{content}<a href='/about'>About</a></main>"),
+            ("https://unrelated.example.org/", f"<main>{content}</main>"),
+        ]
+    )
+    pages, warnings = await extractor.extract("https://example.com/")
+    assert len(pages) == 1
+    assert "off-site" in warnings[0]

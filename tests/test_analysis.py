@@ -93,3 +93,75 @@ async def test_cache_avoids_repeated_fetch_and_generation(settings, report):
     assert service.cached("https://example.com/", "third").brand.name == "Forma"
     extractor.extract.assert_awaited_once()
     llm.generate.assert_awaited_once()
+
+
+async def test_simultaneous_duplicates_share_result(settings, report):
+    import asyncio
+
+    extractor = AsyncMock()
+    extractor.extract.return_value = (report.sources, [])
+
+    async def delayed_generate(_):
+        await asyncio.sleep(0.02)
+        return generated(report), {}
+
+    llm = AsyncMock()
+    llm.generate.side_effect = delayed_generate
+    service = AnalysisService(settings, extractor, llm)
+    results = await asyncio.gather(
+        service.analyze("https://example.com", "one"),
+        service.analyze("https://example.com", "two"),
+    )
+    assert sum(result.metadata.cached for result in results) == 1
+    llm.generate.assert_awaited_once()
+
+
+async def test_busy_server_fails_without_queueing_unbounded_work(settings, report):
+    service = AnalysisService(settings, AsyncMock(), AsyncMock())
+    for _ in range(settings.max_concurrent_analyses):
+        await service.slots.acquire()
+    with pytest.raises(AnalysisError) as error:
+        await service.analyze("https://example.com", "busy")
+    assert error.value.code == "server_busy"
+    service.extractor.extract.assert_not_awaited()
+
+
+async def test_transient_provider_error_retries_once(settings, report, monkeypatch):
+    sleep = AsyncMock()
+    monkeypatch.setattr("app.services.llm_service.asyncio.sleep", sleep)
+    responses = [
+        httpx.Response(503),
+        httpx.Response(
+            200,
+            json={
+                "candidates": [
+                    {
+                        "finishReason": "STOP",
+                        "content": {"parts": [{"text": generated(report).model_dump_json()}]},
+                    }
+                ]
+            },
+        ),
+    ]
+    async with httpx.AsyncClient(
+        transport=httpx.MockTransport(lambda _: responses.pop(0))
+    ) as client:
+        result, _ = await GeminiService(settings, client).generate(report.sources)
+    assert result.brand.name == "Forma"
+    sleep.assert_awaited_once()
+    assert not responses
+
+
+def test_query_contract_rejects_missing_platform_and_duplicates(report):
+    from pydantic import ValidationError
+
+    data = generated(report).model_dump()
+    data["analysis"]["target_search_queries"][4]["platforms"] = ["Google"]
+    with pytest.raises(ValidationError, match="five supported platforms"):
+        GeneratedReport.model_validate(data)
+    data = generated(report).model_dump()
+    data["analysis"]["target_search_queries"][4]["query"] = data["analysis"][
+        "target_search_queries"
+    ][0]["query"]
+    with pytest.raises(ValidationError, match="distinct"):
+        GeneratedReport.model_validate(data)

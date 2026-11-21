@@ -22,6 +22,8 @@ def test_contract_and_docs(settings, report):
         }
         assert response.headers["x-request-id"]
         assert client.get("/docs").status_code == 200
+        schema = client.get("/openapi.json").json()
+        assert schema["components"]["securitySchemes"]["APIKeyHeader"]["name"] == "X-API-Key"
         assert client.get("/health").json()["configured"]
 
 

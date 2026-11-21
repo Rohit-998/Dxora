@@ -2951,3 +2951,20 @@ main .insight-list li,
 .opportunity-card > .card-top > .eyebrow {
   color: #647151;
 }
+.notice p strong,
+.primary-keyword,
+.snippet-site,
+.snippet-site small,
+.check-card strong,
+.check-card p,
+.content-ideas h3,
+.service-detail > span,
+.source-label {
+  color: #59694a;
+}
+.search-snippet h3 {
+  color: #455c96;
+}
+.check-card p {
+  font-size: 0.875rem;
+}

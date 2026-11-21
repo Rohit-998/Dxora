@@ -4,6 +4,9 @@ import { mkdir, writeFile } from "node:fs/promises";
 
 const output = new URL("../../docs/screenshots/", import.meta.url);
 await mkdir(output, { recursive: true });
+await mkdir(new URL("../../artifacts/local/", import.meta.url), {
+  recursive: true,
+});
 const browser = await chromium.launch();
 const context = await browser.newContext({
   viewport: { width: 1440, height: 1080 },
