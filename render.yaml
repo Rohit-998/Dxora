@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: aperture-website-intelligence
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash-lite
+      - key: ANALYSIS_API_KEY
+        generateValue: true
+      - key: MAX_CONCURRENT_ANALYSES
+        value: "2"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "10"

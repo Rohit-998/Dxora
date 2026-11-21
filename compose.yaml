@@ -1,0 +1,17 @@
+services:
+  aperture:
+    build: .
+    ports:
+      - "4000:4000"
+    env_file: .env
+    environment:
+      PORT: "4000"
+      STATIC_DIRECTORY: /app/frontend/dist
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
